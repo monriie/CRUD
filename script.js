@@ -51,7 +51,7 @@ class FinanceTracker {
 
     generateTransactionHTML(transaction) {
         const isIncome = transaction.category === 'income';
-        const amountClass = isIncome ? 'text-green-600' : 'text-red-600';
+        const amountClass = isIncome;
 
         return `
             <td class="px-4 py-2">${transaction.title}</td>
