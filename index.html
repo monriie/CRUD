@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dompet Pintar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Righteous&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/output.css">
+    <link rel="stylesheet" href="css/input.css">
+
+
+</head>
+<body class="bg-slate-50 text-slate-800">
+    <div class="max-w-4xl mx-auto px-4 py-8">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-bold mb-2">💰 Dompet Pintar</h1>
+            <p class="text-slate-600">Kelola Keuangan Lebih Cerdas</p>
+        </header>
+
+        <main class="bg-white shadow-lg rounded-xl p-6 space-y-6">
+            <!-- Formulir Transaksi -->
+            <section>
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-xl font-semibold">Catat Transaksi</h2>
+                    <span class="text-sm text-slate-500">* Wajib diisi</span>
+                </div>
+
+                <form id="transactionForm" class="grid gap-4">
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <input 
+                            type="text" 
+                            name="title" 
+                            placeholder="Judul Transaksi" 
+                            required 
+                            class="input-field"
+                        >
+                        <select 
+                            name="category" 
+                            required 
+                            class="input-field"
+                        >
+                            <option value="">Pilih Kategori</option>
+                            <option value="income">Pemasukan</option>
+                            <option value="expense">Pengeluaran</option>
+                        </select>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400">Rp</span>
+                            <input 
+                                type="number" 
+                                name="amount" 
+                                placeholder="Nominal" 
+                                min="0" 
+                                required 
+                                class="input-field pl-8"
+                            >
+                        </div>
+                        <input 
+                            type="date" 
+                            name="date" 
+                            required 
+                            class="input-field"
+                        >
+                    </div>
+
+                    <button 
+                        type="submit" 
+                        class="btn-primary"
+                    >
+                        Simpan Transaksi
+                    </button>
+                </form>
+            </section>
+
+            <!-- Riwayat Transaksi -->
+            <section class="w-full">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-xl font-semibold">Riwayat Transaksi</h2>
+                    <button id="clearTransactions" class="text-sm bg-red-500 p-2 rounded text-white hover:bg-red-700">
+                        Hapus Semua
+                    </button>
+                </div>
+            
+                <div class="overflow-x-auto">
+                    <table class="w-full mx-auto max-w-4xl border-collapse bg-white shadow-md rounded-lg overflow-hidden">
+                        <thead class="bg-slate-100">
+                            <tr>
+                                <th class="table-header text-center">Judul</th>
+                                <th class="table-header text-center">Kategori</th>
+                                <th class="table-header text-center">Nominal</th>
+                                <th class="table-header text-center">Tanggal</th>
+                                <th class="table-header text-center">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transactionList" class="divide-y divide-slate-200 text-center"></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+        <footer class="bg-white shadow mt-5 align-bottom">
+            <div class="container mx-auto px-4 py-6 text-center">
+             <p class="text-gray-700">
+              &copy; Monriie. All rights reserved.
+             </p>
+            </div>
+           </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
